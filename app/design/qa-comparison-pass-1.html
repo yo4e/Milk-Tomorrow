@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Milk Tomorrow design QA</title>
+    <style>
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        padding: 20px;
+        background: #e8eef4;
+        color: #092d63;
+        font-family: system-ui, sans-serif;
+      }
+      h1 { margin: 0 0 12px; font-size: 18px; }
+      .row { display: flex; gap: 20px; align-items: flex-start; }
+      figure {
+        margin: 0;
+        padding: 10px;
+        border-radius: 12px;
+        background: #fff;
+        box-shadow: 0 4px 16px rgba(9, 45, 99, 0.16);
+      }
+      figcaption { margin-bottom: 8px; font-size: 14px; font-weight: 700; }
+      img { display: block; width: 393px; height: 852px; object-fit: fill; }
+    </style>
+  </head>
+  <body>
+    <h1>Milk Tomorrow · 393×852 fidelity comparison</h1>
+    <div class="row">
+      <figure>
+        <figcaption>Reference · selected option 2</figcaption>
+        <img src="./home-forecast-reference-393x852.png" alt="Selected Home Forecast design" />
+      </figure>
+      <figure>
+        <figcaption>Implementation · default state</figcaption>
+        <img src="./implementation-home-forecast-393x852.jpg" alt="Implemented Home Forecast screen" />
+      </figure>
+    </div>
+  </body>
+</html>
