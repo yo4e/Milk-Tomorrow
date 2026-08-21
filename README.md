@@ -112,6 +112,7 @@ DESIGN.md                        Original product design
 IMPLEMENTATION_NOTES.md          Notification and data-model guidance
 DEPLOYMENT_NOTES.md              Production deployment direction
 DEVPOST_SUBMISSION.md            Submission copy and three-minute demo script
+VIDEO_SCENARIO.md                Review-ready shot list, narration, captions, and audio plan
 ```
 
 ## Submission assets
@@ -120,6 +121,7 @@ DEVPOST_SUBMISSION.md            Submission copy and three-minute demo script
 - [GitHub/social preview](submission-assets/milk-tomorrow-social-preview.png) — 1200 × 630 PNG.
 - [Responsive app screenshot](app/design/implementation-home-forecast-393x852.jpg) — the initial judge-facing state.
 - [Devpost story and demo script](DEVPOST_SUBMISSION.md) — paste-ready submission copy with the remaining checklist.
+- [Detailed video scenario](VIDEO_SCENARIO.md) — the 2:50 review draft with exact narration, captions, credits, and accuracy guardrails.
 
 ## Verification
 

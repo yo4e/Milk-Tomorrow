@@ -95,14 +95,16 @@ The judgeable build intentionally needs no credentials. The next step is to keep
 
 ## Three-minute demonstration script
 
-- **0:00–0:20 — Problem.** Show an empty milk carton and say: “Shopping lists start after someone notices. Milk Tomorrow starts before.”
-- **0:20–0:45 — The simple surface.** Show Friday's `89%` forecast, `2 bottles`, and the one-tap actions.
-- **0:45–1:10 — The mathematical reveal.** Open Tomorrow Lab: 1,000 futures, `+7` weekend points, 90% supply plan, and the 340 ml reserve definition.
-- **1:10–1:30 — Honest feedback.** Tap “We still have some,” show the 12-hour snooze, then move to tonight. Explain that stock ages while time passes and the forecast reopens if the shortage is still real. Reset.
-- **1:30–2:10 — Coordination proof.** Put Aki and Ken in two tabs. Tap “I'll get it” as Aki. Show both tabs update and Ken's action disable with Aki's name.
-- **2:10–2:30 — Close the loop.** Tap “Bought 2 bottles.” Show both tabs update and risk move to `0%`.
-- **2:30–2:50 — Technical evidence.** Briefly show the simulation module and passing domain tests. State that no external credentials are required.
-- **2:50–3:00 — Close.** “Milk Tomorrow: serious forecasting, one friendly household decision.”
+The review-ready shot list, exact English narration, captions, audio plan, and accuracy guardrails are in [`VIDEO_SCENARIO.md`](VIDEO_SCENARIO.md). The target runtime is **2:50**, leaving a ten-second safety margin below Devpost's three-minute limit.
+
+- **0:00–0:12 — Problem.** Establish that shopping lists usually begin after the shelf is empty, then show the working app by 0:06.
+- **0:12–0:35 — Simple surface.** Show the responsive web app, Friday's `89%` forecast, `2 bottles`, and the one-tap actions.
+- **0:35–1:10 — Coordination proof.** Put prepared Aki and Ken windows side by side. Aki claims the trip; both same-browser views update and Ken cannot duplicate the claim.
+- **1:10–1:28 — Close the loop.** Aki records `Bought 2 bottles`; both views update and near-term risk moves to `0%`.
+- **1:28–1:58 — Mathematical reveal.** Reset, then open Tomorrow Lab to show 1,000 futures, `+7` weekend points, the 90th-percentile plan, and the 340 ml reserve.
+- **1:58–2:18 — Honest feedback.** Tap `We still have some`, show the 12-hour pause, and move to tonight. The live result reopens at `90% / 2 bottles / +5 pts`.
+- **2:18–2:40 — Build evidence and limitation.** Show the simulation module, eleven passing domain tests, what was built during the hackathon, and the honest same-browser limitation.
+- **2:40–2:50 — Close.** “Milk Tomorrow brings serious forecasting to one friendly household decision. The shopping list writes itself—before the milk is gone.”
 
 ## Judging alignment
 
@@ -122,6 +124,8 @@ Before implementation, the repository contained only `DESIGN.md`, `IMPLEMENTATIO
 
 - OpenAI Codex assisted with implementation, testing, browser verification, and documentation under human direction.
 - OpenAI image generation created the visual directions and the fictional milk, cloud, and family assets.
+- The planned demo narration uses Kokoro-82M's `af_heart` voice; the model weights are listed as Apache-2.0.
+- The planned demo music is “なんでなんでなんでなんで,” supplied and authorized by its rights holder. Credit: **© ぐらまらすふぁん／使用許諾済み**.
 - The three root planning documents were pre-existing product guidance. The initial product design was written by 月野さん.
 - Third-party libraries and templates are listed in the README and `app/package.json`.
 - The demo uses no external API or dataset and contains no real household data.
