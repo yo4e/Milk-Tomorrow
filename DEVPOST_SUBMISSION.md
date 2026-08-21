@@ -1,6 +1,6 @@
 # Devpost Submission Draft
 
-This file is ready to paste into Devpost after the bracketed team and public-link fields are completed.
+This file is ready to paste into Devpost. Add the final public video link and complete the remaining eligibility checks before submitting.
 
 ## Project name
 
@@ -83,9 +83,15 @@ The judgeable build intentionally needs no credentials. The next step is to keep
 
 ## Working demo and source
 
-- Demo: **[ADD PUBLIC DEMO URL]**
+- Demo: `https://yo4e.github.io/Milk-Tomorrow/`
 - Source: `https://github.com/yo4e/Milk-Tomorrow`
 - Testing: no account is required. Open the demo and follow the README's six-step loop.
+
+## Gallery assets
+
+- Devpost thumbnail: `submission-assets/milk-tomorrow-thumbnail.png` (3:2, 1536 × 1024 PNG)
+- GitHub/social preview: `submission-assets/milk-tomorrow-social-preview.png` (1200 × 630 PNG)
+- Product screenshot: `app/design/implementation-home-forecast-393x852.jpg`
 
 ## Three-minute demonstration script
 
@@ -122,10 +128,9 @@ Before implementation, the repository contained only `DESIGN.md`, `IMPLEMENTATIO
 
 ## Team contributions
 
-- **[PARTICIPANT NAME]** — product direction, visual selection, product decisions, testing, submission, and presentation.
-- **[ADD TEAM MEMBER IF APPLICABLE]** — [SPECIFIC CONTRIBUTION].
+- **山田佳江** — originated and directed the product concept, selected the visual direction, made product and technical-priority decisions, tested the experience, and owns the submission and presentation.
 
-Remove unused team lines before submission. AI tools are disclosed as tools, not listed as team members.
+AI tools are disclosed as tools, not listed as team members.
 
 ## Known limitations, risks, and privacy
 
@@ -140,10 +145,11 @@ Remove unused team lines before submission. AI tools are disclosed as tools, not
 
 - [ ] Resolve the contradictory Devpost overview/rules dates, eligibility, and prize statements with the organizer.
 - [ ] Confirm every participant is eligible and registered.
-- [ ] Replace the public demo URL placeholder.
-- [ ] Replace the team-contribution placeholders.
+- [x] Add and verify the public demo URL.
+- [x] Complete the participant contribution statement.
+- [x] Prepare a 3:2 project-gallery thumbnail.
 - [ ] Record and publish a video no longer than three minutes.
 - [ ] Confirm the repository and demo remain public through judging.
-- [ ] Test the public demo in a signed-out browser and on a phone.
-- [ ] Re-run `npm test`, `npm run check:runtime`, `npm run build`, and `npm run test:sites`.
-- [ ] Confirm no secret, private data, or unpublished credential is committed.
+- [x] Test the public demo anonymously and at a 393 × 852 mobile viewport.
+- [x] Re-run `npm test`, `npm run check:runtime`, `npm run build`, and `npm run test:sites`.
+- [x] Confirm no secret, private data, or unpublished credential is present in the working tree.
