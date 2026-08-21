@@ -8,6 +8,8 @@ Milk Tomorrow forecasts when everyday household supplies are likely to run short
 
 Built for [Proof of Possible 2026](https://proof-of-possible-2026.devpost.com/).
 
+**Live demo:** [yo4e.github.io/Milk-Tomorrow](https://yo4e.github.io/Milk-Tomorrow/)
+
 ## Why it exists
 
 Shared shopping lists start after someone notices an empty shelf. Households still encounter two familiar failures:

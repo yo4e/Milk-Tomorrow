@@ -12,6 +12,7 @@ import {
   ReloadIcon,
 } from "@radix-ui/react-icons";
 import { useMemo, useState } from "react";
+import { assetUrl } from "./assetUrl";
 import { useDemoHousehold } from "./demo/useDemoHousehold";
 import { BottomSheet, MobileScroll } from "./mobile";
 import "./prototype.css";
@@ -177,8 +178,8 @@ function ForecastChart({
 function BottlePair() {
   return (
     <div className="bottle-pair" aria-hidden="true">
-      <img src="/assets/milk-tomorrow/milk-bottle.png" alt="" draggable="false" />
-      <img src="/assets/milk-tomorrow/milk-bottle.png" alt="" draggable="false" />
+      <img src={assetUrl("assets/milk-tomorrow/milk-bottle.png")} alt="" draggable="false" />
+      <img src={assetUrl("assets/milk-tomorrow/milk-bottle.png")} alt="" draggable="false" />
     </div>
   );
 }
@@ -258,7 +259,7 @@ export default function Prototype() {
         <main className="home-forecast" data-testid="home-forecast" aria-labelledby="app-title">
           <img
             className="forecast-clouds"
-            src="/assets/milk-tomorrow/forecast-clouds.png"
+            src={assetUrl("assets/milk-tomorrow/forecast-clouds.png")}
             alt=""
             aria-hidden="true"
             draggable="false"
@@ -275,7 +276,7 @@ export default function Prototype() {
           >
             <img
               className="hero-bottle"
-              src="/assets/milk-tomorrow/milk-bottle.png"
+              src={assetUrl("assets/milk-tomorrow/milk-bottle.png")}
               alt="A glass bottle of milk"
               draggable="false"
             />
@@ -347,7 +348,7 @@ export default function Prototype() {
 
           <section className="family-status" aria-label="Household coordination">
             <img
-              src="/assets/milk-tomorrow/family-avatars.png"
+              src={assetUrl("assets/milk-tomorrow/family-avatars.png")}
               alt="The five members of the Sakura household"
               draggable="false"
             />
