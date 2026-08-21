@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - codex/milk-tomorrow-demo
   workflow_dispatch:
 
 permissions:
