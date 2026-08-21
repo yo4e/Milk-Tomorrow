@@ -2,13 +2,17 @@
 
 > **The shopping list that writes itself—before the milk is gone.**
 
-![Milk Tomorrow Home Forecast](app/design/implementation-home-forecast-393x852.jpg)
+[![Milk Tomorrow — forecast the next shortage before the milk is gone](submission-assets/milk-tomorrow-thumbnail.png)](https://yo4e.github.io/Milk-Tomorrow/)
 
 Milk Tomorrow forecasts when everyday household supplies are likely to run short, recommends a practical purchase quantity, and lets exactly one family member claim the restocking task. The surface is intentionally simple enough for a child or a busy parent; underneath it runs a timezone-aware, seeded Monte Carlo demand simulation.
 
 Built for [Proof of Possible 2026](https://proof-of-possible-2026.devpost.com/).
 
 **Live demo:** [yo4e.github.io/Milk-Tomorrow](https://yo4e.github.io/Milk-Tomorrow/)
+
+## Participant contribution
+
+**山田佳江** — originated and directed the product concept, selected the visual direction, made product and technical-priority decisions, tested the experience, and owns the submission and presentation.
 
 ## Why it exists
 
@@ -103,11 +107,19 @@ app/src/demo/useDemoHousehold.ts Seeded clock, feedback, and tab coordination
 app/src/Prototype.tsx            Home Forecast and Tomorrow Lab
 app/tests/domain/                Deterministic domain tests
 app/design-qa.md                 Source-vs-rendered design QA evidence
+submission-assets/               Devpost thumbnail and social-preview artwork
 DESIGN.md                        Original product design
 IMPLEMENTATION_NOTES.md          Notification and data-model guidance
 DEPLOYMENT_NOTES.md              Production deployment direction
 DEVPOST_SUBMISSION.md            Submission copy and three-minute demo script
 ```
+
+## Submission assets
+
+- [Devpost gallery thumbnail](submission-assets/milk-tomorrow-thumbnail.png) — 3:2 PNG, ready to upload.
+- [GitHub/social preview](submission-assets/milk-tomorrow-social-preview.png) — 1200 × 630 PNG.
+- [Responsive app screenshot](app/design/implementation-home-forecast-393x852.jpg) — the initial judge-facing state.
+- [Devpost story and demo script](DEVPOST_SUBMISSION.md) — paste-ready submission copy with the remaining checklist.
 
 ## Verification
 
@@ -146,7 +158,7 @@ At the start of implementation, this repository contained the three planning doc
 ## AI and third-party disclosure
 
 - **AI-assisted development:** OpenAI Codex helped translate the supplied design into code, implement and test the simulation, exercise browser states, and draft documentation. The human participant directed the product and selected the final visual direction.
-- **Generated visuals:** OpenAI image generation was used for the design directions and the milk bottle, cloud, and fictional-family artwork. No real person's likeness or personal data was used.
+- **Generated visuals:** OpenAI image generation was used for the design directions, milk bottle, cloud, fictional-family artwork, and submission thumbnail. No real person's likeness or personal data was used.
 - **Pre-existing product work:** `DESIGN.md`, `IMPLEMENTATION_NOTES.md`, and `DEPLOYMENT_NOTES.md` were supplied before application implementation. The initial product design was written by 月野さん.
 - **Libraries/templates:** React, React DOM, TypeScript, Vite, Radix UI, Motion, `@use-gesture/react`, Fontsource Nunito/Roboto, Playwright test tooling, and the Codex Product Design mobile-app starter with its bundled device-preview assets.
 - **External APIs/datasets:** none in credential-free Demo Mode.

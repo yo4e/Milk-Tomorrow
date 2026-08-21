@@ -2,23 +2,32 @@
 
 Codex should read this together with `DESIGN.md` and `IMPLEMENTATION_NOTES.md`.
 
-## Deployment choice for the hackathon
+## Current hackathon deployment
 
-For the Proof of Possible 2026 build, prefer:
+The judge-facing Demo Mode is deployed on GitHub Pages:
 
-- **Vercel Hobby** for the public web app and server-side routes/functions
-- **Supabase** for Postgres, shared household state, realtime, and auth/data services as needed
+- **Demo:** https://yo4e.github.io/Milk-Tomorrow/
+- **Source:** https://github.com/yo4e/Milk-Tomorrow
+- **Deployment:** `.github/workflows/deploy-pages.yml` builds `app/` from `main`
+- **Credentials:** none required
+
+GitHub Pages is the right host for the current proof because the submitted slice is intentionally static and credential-free. Its forecast engine is real TypeScript, while tab coordination uses browser APIs and is explicitly limited to one browser and origin. Keeping that limitation visible is preferable to making an unfinished backend a judging dependency.
+
+## Production upgrade path
+
+A genuinely cross-device household service still needs server-authoritative state. The recommended next architecture remains:
+
+- **Vercel or another server-capable host** for server-side routes/functions
+- **Supabase/Postgres** for household state, atomic claims, realtime, and authentication
 - **Resend or equivalent** for email notifications
 
-This is preferred over GitHub Pages for the hackathon because Milk Tomorrow needs more than static hosting: server-side request handling, signed action-link validation, atomic claim mutations, scheduled/background logic, and secrets that must not be exposed in client-side code.
-
-GitHub Pages is still a viable future option if the architecture is intentionally split so that all backend behavior lives in Supabase Edge Functions or another backend service. Do not choose that architecture merely to avoid Vercel during this short hackathon unless it clearly reduces implementation risk.
+These are future adapters, not capabilities claimed by the public demo. The tested forecast and coordination domain modules should remain platform-independent.
 
 ## Vercel Hobby cost / traffic policy
 
-The hackathon prototype should remain on the free **Hobby** plan unless there is a concrete reason to upgrade.
+If the production adapter is later prototyped on Vercel, it should remain on the free **Hobby** plan unless there is a concrete reason to upgrade.
 
-Design assumption for this prototype:
+Design assumption for that optional prototype:
 
 - do **not** enable paid overage / Pro billing merely for the hackathon;
 - if free-plan resource limits are reached, treat service restriction or temporary unavailability as the risk to manage, rather than designing around hypothetical large traffic bills;
