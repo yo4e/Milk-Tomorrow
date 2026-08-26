@@ -2,6 +2,8 @@
 
 > **Know what your family will need before it runs out.**
 
+> **Historical planning document (August 21, 2026).** This preserves the original Proof of Possible context and is useful as design provenance, but its event name, eligibility assumptions, and submission guidance are not HackSocial 2026 requirements. Use [`README.md`](README.md), [`HACKSOCIAL_2026_CHECKLIST.md`](HACKSOCIAL_2026_CHECKLIST.md), and [`DEVPOST_SUBMISSION.md`](DEVPOST_SUBMISSION.md) for the current submission.
+
 ## 1. Project context
 
 **Hackathon:** Proof of Possible 2026  

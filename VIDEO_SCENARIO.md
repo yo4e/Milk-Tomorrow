@@ -1,16 +1,16 @@
-# Milk Tomorrow — Demo Video Scenario
+# Milk Tomorrow — Optional Demo Video Master
 
-> **Review draft for 月野さん.** Do not render or publish the final video until this scenario is approved.
+> Optional HackSocial 2026 promotional/demo asset. As checked on August 26, the official Overview and Rule 3.5 do not state that a video is mandatory; the working live demo, source, screenshots, and written submission do not depend on producing it.
 
 ## Goal and runtime
 
-- Target runtime: **2:50**
-- Hard limit: **3:00**
+- Master runtime: **2:50**
+- Intended fit: events with a verified limit of at least **3:00**
 - Story: problem → simple forecast → coordinated action → completed purchase → mathematical reveal → honest correction → build evidence and limitation
-- Required evidence: the problem, the working product, its most important technical feature, and what was built during the hackathon
+- Evidence covered: the problem, the working product, its most important technical feature, provenance, and current limitations
 - Tone: cute and calm on the surface, technically rigorous underneath
 
-The ten-second buffer is intentional. It protects the submission from export rounding, title-card timing, and platform playback differences.
+The ten-second buffer is intentional. It protects a three-minute export from rounding, title-card timing, and platform playback differences. Before production, verify the actual HackSocial form and any organizer update for duration, host, visibility, captions, AI-media policy, and licensing rules. If no video is required and the public demo is sufficient, leave this file as a future asset.
 
 ## Production decisions
 
@@ -18,10 +18,10 @@ The ten-second buffer is intentional. It protects the submission from export rou
 |---|---|
 | Frame | 1920 × 1080, 16:9, 30 fps |
 | Product capture | Record the public responsive web app. Show the centered desktop layout briefly, then use a mobile-width crop for the main flow. |
-| Narration | English, generated locally with [Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M), voice `af_heart` |
-| Voice license | Kokoro-82M model weights are listed as Apache-2.0. Do not use a macOS System Voice. |
+| Narration | Planned English narration generated locally with [Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M), voice `af_heart`; replace it if the target platform requires another approach. |
+| Voice license | Re-check the model, voice, and hosting license immediately before publishing. Do not use a voice whose publication rights are unclear. |
 | Captions | Burned-in English captions matching the narration, plus an `.srt` sidecar for the video host |
-| Background music | Use the rights-holder-provided WAV of [“なんでなんでなんでなんで”](https://open.spotify.com/intl-ja/track/1FogdwEZrwr1timrqMh681) |
+| Background music | Optional rights-holder-provided WAV of [“なんでなんでなんでなんで”](https://open.spotify.com/intl-ja/track/1FogdwEZrwr1timrqMh681); use only when the event and video host permit it. |
 | Music credit | **Music: “なんでなんでなんでなんで” — © ぐらまらすふぁん／使用許諾済み** |
 | Music mix | Let the opening and closing breathe; duck the track beneath narration and fade out naturally by 2:50. Do not loop it. |
 | Source WAV | Keep it as a local render input. Do not commit the 35 MB master to the public repository. |
@@ -35,7 +35,7 @@ The ten-second buffer is intentional. It protects the submission from export rou
 5. Keep both windows on the same origin so the credential-free tab synchronization is visible.
 6. Turn off desktop notifications, hide bookmarks and unrelated tabs, and keep browser zoom at 100%.
 7. Record the product interaction first. Record code and test evidence as separate, tightly cropped inserts.
-8. Use only repository artwork and the authorized music; do not add unrelated stock footage.
+8. Use only repository artwork and media whose permission covers the event and video host; do not add unrelated stock footage.
 
 ## Shot-by-shot scenario
 
@@ -140,7 +140,7 @@ The ten-second buffer is intentional. It protects the submission from export rou
 
 `A coarse observation never becomes a fake measurement.`
 
-### 2:18–2:40 — What we built and what remains
+### 2:18–2:40 — What the prototype proves and what remains
 
 **Picture**
 
@@ -150,11 +150,11 @@ The ten-second buffer is intentional. It protects the submission from export rou
 
 **Narration**
 
-> During this hackathon, we built the React interface, TypeScript forecast engine, coordination state machine, generated visuals, and eleven deterministic domain tests. The public demo needs no account or API key. Its shared state is deliberately limited to tabs in one browser. Server-backed, cross-device households are the next step.
+> The current prototype combines a React interface, a TypeScript forecast engine, a coordination state machine, generated visuals, and eleven deterministic domain tests. The public demo needs no account or API key. Its shared state is deliberately limited to tabs in one browser. Server-backed, cross-device households are the next step.
 
 **Caption emphasis**
 
-`Built during the hackathon · 11 deterministic tests · no credentials`
+`Working prototype · 11 deterministic tests · no credentials`
 
 ### 2:40–2:50 — Close and credits
 
@@ -198,11 +198,23 @@ AI-assisted development and generated visuals: OpenAI Codex and OpenAI image gen
 - Never describe same-browser tab synchronization as production cross-device household synchronization.
 - Never imply that the model observes the refrigerator or knows the exact amount of milk remaining.
 - Keep the 340 ml safety-reserve definition visible when explaining “running short.”
+- Do not say the full prototype was built during a later event. If an event requires a build-period statement, replace the provenance line with the exact eligible-period commits documented for that event.
 
-## Review questions for 月野さん
+## Shorter cuts
 
-1. Does the story make the simple-interface/serious-mathematics contrast clear enough?
-2. Is the order `forecast → claim → purchase → math → correction` easy to follow?
-3. Does the limitation statement feel honest without weakening the demonstration?
-4. Is any narration too technical or too fast for a first-time viewer?
-5. Are the music and end-card credits presented appropriately?
+Use these only after checking the target limit:
+
+- **90 seconds:** problem (0:00–0:08) → forecast (0:08–0:22) → claim/purchase (0:22–0:52) → Tomorrow Lab (0:52–1:12) → limitation and close (1:12–1:30). Omit the “We still have some” branch.
+- **60 seconds:** problem (0:00–0:06) → `89% / 2 bottles` (0:06–0:18) → two-tab claim and `0%` purchase result (0:18–0:40) → 1,000 futures and limitation (0:40–0:53) → tagline (0:53–1:00).
+
+Do not speed narration until it becomes inaccessible. Remove secondary evidence first and link reviewers to the live demo and README.
+
+## Pre-publish review
+
+1. Does the final HackSocial form or submission strategy actually require or benefit from a video?
+2. Is the chosen cut inside the verified duration limit after export?
+3. Does the story make the simple-interface/serious-mathematics contrast clear?
+4. Is the order `forecast → claim → purchase → math → correction` easy to follow at normal narration speed?
+5. Does the same-browser limitation remain explicit?
+6. Does the provenance statement match HackSocial's eligible-period interpretation and the Git history?
+7. Are captions, voice, music, generated-media, and end-card credits allowed and complete?
