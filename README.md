@@ -4,41 +4,40 @@
 
 [![Milk Tomorrow — forecast the next shortage before the milk is gone](submission-assets/milk-tomorrow-thumbnail.png)](https://yo4e.github.io/Milk-Tomorrow/)
 
-Milk Tomorrow forecasts when everyday household supplies are likely to run short, recommends a practical purchase quantity, and lets exactly one family member claim the restocking task. The surface is intentionally simple enough for a child or a busy parent; underneath it runs a timezone-aware, seeded Monte Carlo demand simulation.
+Milk Tomorrow forecasts when an everyday household supply is likely to run short, recommends a practical purchase quantity, and lets one family member claim the restocking task. The surface is intentionally simple enough for a child or a busy parent; underneath it runs a timezone-aware, seeded Monte Carlo demand simulation.
 
-Built for [Proof of Possible 2026](https://proof-of-possible-2026.devpost.com/).
-
-**Live demo:** [yo4e.github.io/Milk-Tomorrow](https://yo4e.github.io/Milk-Tomorrow/)
-
-## Participant contribution
-
-**山田佳江** — originated and directed the product concept, selected the visual direction, made product and technical-priority decisions, tested the experience, and owns the submission and presentation.
+- **Live demo:** [yo4e.github.io/Milk-Tomorrow](https://yo4e.github.io/Milk-Tomorrow/)
+- **HackSocial 2026 Devpost copy:** [DEVPOST_SUBMISSION.md](DEVPOST_SUBMISSION.md)
+- **Official-rules check and preflight:** [HACKSOCIAL_2026_CHECKLIST.md](HACKSOCIAL_2026_CHECKLIST.md)
 
 ## Why it exists
 
-Shared shopping lists start after someone notices an empty shelf. Households still encounter two familiar failures:
+Shared shopping lists usually start after somebody notices an empty shelf. Households still encounter two familiar failures:
 
 1. Nobody buys the milk because everyone assumes somebody else will.
 2. Several people buy it because they notice the shortage independently.
 
-Milk Tomorrow moves the decision earlier. It learns a rough household rhythm from purchase events and friendly consumption presets, forecasts the next shortage, and coordinates the response without asking anyone to log every glass of milk.
+Milk Tomorrow moves the decision earlier. It models a household rhythm from purchase events and friendly consumption presets, forecasts a shortage, and coordinates the response without asking anyone to log every glass of milk.
 
-## What works now
+## What reviewers can verify now
 
 - A polished mobile-first, desktop-friendly Home Forecast with a reproducible **89%** weekend shortage scenario.
 - A real **1,000-trial** probabilistic simulation, not a hard-coded chart.
 - Per-person weekday/weekend participation and serving-size variation.
-- A safety-reserve definition of “running short,” so the app warns before literal zero.
-- A 90th-percentile supply plan that rounds recommendations to whole packages.
-- A counterfactual weekend calculation (`+7 points` in the seeded demo).
-- Atomic-style “I’ll get it” coordination across tabs using Web Locks.
-- Instant shared updates through BroadcastChannel with a storage-event fallback.
-- Purchase completion that adds two bottles and recalculates near-term risk to **0%**.
-- Responsible “We still have some” feedback: record the observation, snooze for 12 hours, make a bounded adjustment, and never invent an exact remaining amount.
-- A judge-facing **Tomorrow Lab** with time travel, household-member switching, activity history, model assumptions, and reset.
-- Responsive iPhone and Pixel 10 layouts, semantic controls, live status announcements, visible focus styles, and reduced-motion support.
+- A **340 ml** safety reserve, so “running short” is earlier and more honest than literal zero.
+- A 90th-percentile, 48-hour supply plan rounded to whole packages.
+- A seeded weekend counterfactual that explains the visible **+7 point** effect.
+- One-tap “I’ll get it” coordination serialized with Web Locks in supported browsers.
+- Same-browser tab updates through BroadcastChannel with a storage-event fallback.
+- Purchase completion that adds two 1 L bottles and recalculates the seeded near-term risk to **0%**.
+- Responsible “We still have some” feedback: record the observation, pause for 12 hours, make a bounded adjustment, and never invent an exact remaining amount.
+- A **Tomorrow Lab** with time travel, household-member switching, activity history, model assumptions, and reset.
+- Eleven deterministic domain tests and a credential-free public Demo Mode.
+- Responsive layouts, semantic controls, live status announcements, visible focus styles, and reduced-motion support.
 
 ## Try the complete loop
+
+No account, API key, database, or environment variable is required.
 
 ```bash
 cd app
@@ -46,57 +45,67 @@ npm ci
 npm run dev
 ```
 
-Open the printed local URL. No account, API key, database, or environment variable is required for Demo Mode.
-
-The normal URL is the responsive web app. Add `?preview=phone` when you want the calibrated iPhone/Pixel device simulator used for visual QA.
+Open the printed local URL. The normal route is the responsive web app; add `?preview=phone` for the calibrated iPhone/Pixel device simulator used in visual QA.
 
 1. Read the Friday forecast: `89%` risk and `2 bottles` recommended.
 2. Open **See the 1,000 simulated futures** to inspect the model and demo clock.
-3. Open the app in a second tab and select a different household member in Tomorrow Lab.
-4. Tap **I’ll get it** in one tab. Both tabs immediately show the same assignee; only one claim can win.
-5. As the winner, tap **Bought 2 bottles**. Both tabs update and near-term risk falls to `0%`.
-6. Reset, tap **We still have some**, then **Move to tonight** to see estimated stock age with elapsed time and the alert re-evaluate instead of being dismissed forever.
+3. Open a second tab and select a different household member in Tomorrow Lab.
+4. Tap **I’ll get it** in one tab. Both tabs show the same assignee and only one claim can win when Web Locks is available.
+5. As the winner, tap **Bought 2 bottles**. Both tabs update and the seeded near-term risk falls to `0%`.
+6. Reset, tap **We still have some**, then **Move to tonight**. The observation changes the estimate conservatively; it does not dismiss the forecast forever.
 
-## The mathematical core
+## How the forecast works
 
-For every simulated hour and household member, Milk Tomorrow samples a consumption event with probability:
+For each simulated hour and household member, Milk Tomorrow samples a consumption event with probability:
 
 ```text
 P(event) = member_probability(day_kind) × hourly_consumption_weight
 ```
 
-If an event occurs, the portion is sampled around that member's mean with bounded normal variation:
+When an event occurs, its portion is sampled around the member's mean with bounded normal variation:
 
 ```text
 portion = mean_portion × clamp(1 + Normal(0, variation), 0.55, 1.60)
 ```
 
-The forecast runs 1,000 future paths. At horizon `H`, with estimated stock `S` and a one-breakfast reserve `R = 340 ml`:
+The forecast runs 1,000 future paths. At horizon `H`, with estimated stock `S` and safety reserve `R = 340 ml`:
 
 ```text
 risk(H) = count(S_H ≤ R) / 1,000
 ```
 
-The purchase recommendation covers the 90th-percentile 48-hour consumption path, restores the reserve, subtracts current stock, and rounds up to whole 1 L bottles. A second counterfactual simulation replaces weekend probabilities with weekday probabilities; its difference from the baseline explains the visible weekend effect.
+The recommendation covers the 90th-percentile 48-hour consumption path, restores the reserve, subtracts current stock, and rounds up to whole 1 L bottles. A second simulation replaces weekend probabilities with weekday probabilities; its difference from the baseline explains the weekend effect.
 
-The demo uses a fixed seed (`260821`) so judges always see the same evidence. The model itself remains sensitive to time, stock, household profile, purchase events, observations, and timezone.
+The public demo uses a fixed clock and seed (`260821`) so reviewers can reproduce the same evidence. The engine itself remains sensitive to time, stock, household profile, purchase events, observations, and timezone.
 
 ## Architecture
 
 ```mermaid
 flowchart TD
-  UI[Home Forecast + Tomorrow Lab] --> Demo[Demo household service]
+  UI[Home Forecast + Tomorrow Lab] --> Demo[Credential-free demo household service]
   Demo --> Forecast[Pure TypeScript forecast engine]
   Forecast --> MC[1,000 seeded future paths]
   Forecast --> Counterfactual[Weekend counterfactual]
   Demo --> Coordination[Request state machine]
-  Coordination --> Lock[Web Lock: one claim winner]
+  Coordination --> Lock[Web Lock: one same-browser claim winner]
   Lock --> Storage[LocalStorage demo state]
   Storage --> Channel[BroadcastChannel + storage events]
-  Channel --> Tabs[All open household tabs]
+  Channel --> Tabs[Open tabs on the same browser and origin]
 ```
 
-The domain engine is independent of React and hosting. Demo Mode intentionally keeps shared state inside one browser so the artifact is immediately testable without credentials. A production version should put the same state transitions behind a server-authoritative Postgres transaction and realtime channel; browser locks are not a cross-device substitute.
+The domain engine is independent of React and hosting. Demo Mode deliberately keeps shared state inside one browser so the artifact is immediately testable without credentials. A production household service should put the same transitions behind server-authoritative persistence and realtime updates; browser locks are not a cross-device substitute.
+
+## HackSocial 2026 fit
+
+Milk Tomorrow targets the **Lifestyle Hacks Track** because it removes a recurring day-to-day household friction: noticing a likely shortage, deciding how much to buy, and making sure exactly one person has the trip covered.
+
+| Official judging criterion | Evidence in the working prototype |
+|---|---|
+| Technical Execution | Seeded simulation, quantiles, counterfactuals, timezone logic, a tested state machine, Web Locks, tab synchronization, and eleven domain tests. |
+| Innovation & Creativity | Turns the shopping list from a reactive note into a forecast-generated action before the shelf is empty. |
+| User Interface and Design | `89% → 2 bottles → I’ll get it` on the main screen, with model evidence progressively disclosed in Tomorrow Lab. |
+
+The exact official-source audit, known page defects, and remaining organizer question are in [HACKSOCIAL_2026_CHECKLIST.md](HACKSOCIAL_2026_CHECKLIST.md).
 
 ## Repository map
 
@@ -105,23 +114,16 @@ app/src/domain/forecast.ts       Monte Carlo forecast and counterfactual
 app/src/domain/coordination.ts   Idempotent request and claim state machine
 app/src/demo/useDemoHousehold.ts Seeded clock, feedback, and tab coordination
 app/src/Prototype.tsx            Home Forecast and Tomorrow Lab
-app/tests/domain/                Deterministic domain tests
+app/tests/domain/                Eleven deterministic domain tests
 app/design-qa.md                 Source-vs-rendered design QA evidence
-submission-assets/               Devpost thumbnail and social-preview artwork
-DESIGN.md                        Original product design
-IMPLEMENTATION_NOTES.md          Notification and data-model guidance
-DEPLOYMENT_NOTES.md              Production deployment direction
-DEVPOST_SUBMISSION.md            Submission copy and three-minute demo script
-VIDEO_SCENARIO.md                Review-ready shot list, narration, captions, and audio plan
+submission-assets/               Reusable gallery and social artwork
+DEVPOST_SUBMISSION.md            HackSocial 2026 paste-ready story and disclosure
+HACKSOCIAL_2026_CHECKLIST.md     Official-source audit and human-only preflight
+VIDEO_SCENARIO.md                Optional 2:50 demo-video master and shorter cuts
+DESIGN.md                        Historical product design from the initial build
+IMPLEMENTATION_NOTES.md          Historical implementation guidance
+DEPLOYMENT_NOTES.md              Current public demo and production upgrade path
 ```
-
-## Submission assets
-
-- [Devpost gallery thumbnail](submission-assets/milk-tomorrow-thumbnail.png) — 3:2 PNG, ready to upload.
-- [GitHub/social preview](submission-assets/milk-tomorrow-social-preview.png) — 1200 × 630 PNG.
-- [Responsive app screenshot](app/design/implementation-home-forecast-393x852.jpg) — the initial judge-facing state.
-- [Devpost story and demo script](DEVPOST_SUBMISSION.md) — paste-ready submission copy with the remaining checklist.
-- [Detailed video scenario](VIDEO_SCENARIO.md) — the 2:50 review draft with exact narration, captions, credits, and accuracy guardrails.
 
 ## Verification
 
@@ -135,38 +137,39 @@ npm run test:sites
 
 The domain suite covers reproducibility, purchase impact, time-travel stock aging, weekend lift, reserve crossing, package rounding, timezone boundaries, claim concurrency, request idempotency, claimant-only completion, and snooze/reopen behavior.
 
-## Responsible delivery
+## Responsible delivery and current limitations
 
-- Forecasts are labeled as probabilities, not promises.
-- “Running short” is explicitly defined as crossing a 340 ml safety reserve.
-- The UI exposes the model assumptions and trial count.
+- Forecasts are probabilities, not promises; “running short” means crossing a 340 ml safety reserve.
+- The public scenario is fixed to a fictional Sakura household with synthetic profiles and a reproducible demo clock.
 - A binary observation never becomes a fabricated stock measurement.
-- The demo uses a fictional Sakura household and synthetic consumption profiles.
-- No personal data, precise location, receipt, account, or credential is collected.
-- The seeded demo is reproducible and its limitations are stated below.
+- Demo synchronization is same-browser and same-origin only, not cross-device household persistence.
+- Authentication, server-authoritative persistence, scheduled forecasts, notifications, and signed actions are roadmap items, not current capabilities.
+- Inventory is inferred from seeded stock, purchase events, and coarse feedback; the app does not observe the refrigerator.
+- The household and milk profile are fixed in this narrow prototype. Onboarding and additional consumables are future work.
+- Demo Mode collects no account, precise location, receipt, credential, or real household data.
 
-## Current limitations
+## Project history and reuse disclosure
 
-- Demo synchronization is same-browser and same-origin only. It proves concurrency behavior but is not cross-device household persistence.
-- Real authentication, Postgres transactions, realtime subscriptions, scheduled forecasts, and signed email actions are not connected yet.
-- Inventory is inferred from seeded stock, purchase events, and coarse feedback; the model does not observe the refrigerator directly.
-- The household and milk profile are fixed in this judge-facing slice; onboarding and additional consumables are future work.
-- A manual hardware-keyboard pass should be repeated after deployment because the protected desktop phone preview emulates touch input.
+The repository preserves its original planning context, but this README is event-neutral. Git history establishes the following timeline on **August 21, 2026 (JST)**:
 
-## What was created during the hackathon
+- `7c5061b`, `4af35f1`, and `4db6ccc`: product, implementation, and deployment planning documents.
+- `a8a5234`: the application, forecast engine, coordination flow, tests, and selected visual implementation.
+- `d9ff177` through `06e84e9`: static hosting and GitHub Pages deployment work.
+- `d5088f4` / PR #3 and `1d40a91`: submission artwork, public documentation, and the optional video scenario.
 
-At the start of implementation, this repository contained the three planning documents at the root and no application code. The complete `app/` prototype, simulation and coordination engines, tests, generated visual assets, responsive interface, Tomorrow Lab, and QA evidence were created during the hackathon build.
+HackSocial publishes an event period of August 1–31, 2026, so every commit above falls inside that window. The repository was nevertheless first framed for another event, and HackSocial's visible Rules do not explicitly address prior-event preparation or cross-submission. That history remains public; organizer confirmation is a human-only preflight item rather than an eligibility assumption.
 
-## AI and third-party disclosure
+## Participant and tool disclosure
 
-- **AI-assisted development:** OpenAI Codex helped translate the supplied design into code, implement and test the simulation, exercise browser states, and draft documentation. The human participant directed the product and selected the final visual direction.
-- **Generated visuals:** OpenAI image generation was used for the design directions, milk bottle, cloud, fictional-family artwork, and submission thumbnail. No real person's likeness or personal data was used.
-- **Pre-existing product work:** `DESIGN.md`, `IMPLEMENTATION_NOTES.md`, and `DEPLOYMENT_NOTES.md` were supplied before application implementation. The initial product design was written by 月野さん.
-- **Libraries/templates:** React, React DOM, TypeScript, Vite, Radix UI, Motion, `@use-gesture/react`, Fontsource Nunito/Roboto, Playwright test tooling, and the Codex Product Design mobile-app starter with its bundled device-preview assets.
-- **External APIs/datasets:** none in credential-free Demo Mode.
+- **山田佳江** originated and directed the product concept, selected the visual direction, made product and technical-priority decisions, tested the experience, and owns the submission and presentation.
+- OpenAI Codex assisted with implementation, testing, browser verification, and documentation under human direction.
+- OpenAI image generation created the design directions and fictional milk, cloud, family, and submission artwork. No real person's likeness or personal data was used.
+- The original planning documents credit 月野さん for the initial written product design.
+- React, React DOM, TypeScript, Vite, Radix UI, Motion, `@use-gesture/react`, Fontsource packages, Playwright tooling, and the Codex Product Design mobile runtime are third-party dependencies or templates.
+- Credential-free Demo Mode uses no external API or dataset.
 
-The participant remains responsible for the submission's accuracy, licensing, privacy, security, and behavior.
+AI tools are disclosed as tools, not listed as team members. The participant remains responsible for the project's accuracy, licensing, privacy, security, and behavior.
 
 ## Next production step
 
-Keep this credential-free demo as the judging fallback, then add a server-authoritative adapter for Supabase/Postgres, signed one-time email actions, realtime household updates, and a scheduled forecast endpoint. Those services should reuse the tested domain engine rather than change the judge-facing model.
+Keep the credential-free demo as a reliable review fallback, then add server-authoritative household state, atomic cross-device claims, realtime updates, scheduled forecasts, and signed notification actions. Those adapters should reuse the tested domain engine rather than replace the judgeable model.

@@ -2,6 +2,8 @@
 
 This document supplements `DESIGN.md`. Codex should read **both files** before implementation.
 
+> **Historical planning document (August 21, 2026).** Event-specific MVP priorities and provider suggestions below explain the original build decisions; they are not HackSocial 2026 rules or required scope. Current capabilities and submission guidance live in [`README.md`](README.md), [`HACKSOCIAL_2026_CHECKLIST.md`](HACKSOCIAL_2026_CHECKLIST.md), and [`DEVPOST_SUBMISSION.md`](DEVPOST_SUBMISSION.md).
+
 The purpose of this addendum is to lock down the notification-first UX, household/member data, and the implementation details most likely to cause trouble during the Proof of Possible 2026 build.
 
 ## 1. Product interaction: almost no app-opening required

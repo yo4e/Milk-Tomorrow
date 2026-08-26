@@ -1,108 +1,102 @@
 # Milk Tomorrow — Deployment Notes
 
-Codex should read this together with `DESIGN.md` and `IMPLEMENTATION_NOTES.md`.
+This document describes the current public demo and an optional production upgrade path. HackSocial-specific hosting, visibility, and judging-period checks are in [`HACKSOCIAL_2026_CHECKLIST.md`](HACKSOCIAL_2026_CHECKLIST.md).
 
-## Current hackathon deployment
+## Current public demo
 
-The judge-facing Demo Mode is deployed on GitHub Pages:
+The credential-free Demo Mode is deployed on GitHub Pages:
 
 - **Demo:** https://yo4e.github.io/Milk-Tomorrow/
 - **Source:** https://github.com/yo4e/Milk-Tomorrow
-- **Deployment:** `.github/workflows/deploy-pages.yml` builds `app/` from `main`
-- **Credentials:** none required
+- **Deployment workflow:** `.github/workflows/deploy-pages.yml` builds `app/` from `main`
+- **Credentials and environment variables:** none required
+- **Runtime services:** no database, server API, scheduled job, email provider, or external dataset
 
-GitHub Pages is the right host for the current proof because the submitted slice is intentionally static and credential-free. Its forecast engine is real TypeScript, while tab coordination uses browser APIs and is explicitly limited to one browser and origin. Keeping that limitation visible is preferable to making an unfinished backend a judging dependency.
+GitHub Pages fits the current artifact because the submitted slice is static and credential-free. The forecast engine is real TypeScript running in the browser. Demo coordination uses browser APIs and is deliberately limited to tabs on one browser and origin.
 
-## Production upgrade path
+## Review-access contract
 
-A genuinely cross-device household service still needs server-authoritative state. The recommended next architecture remains:
+For any public submission:
 
-- **Vercel or another server-capable host** for server-side routes/functions
-- **Supabase/Postgres** for household state, atomic claims, realtime, and authentication
-- **Resend or equivalent** for email notifications
+1. Keep a credential-free route available even if a production adapter is added later.
+2. Verify the URL in a signed-out browser with empty local storage.
+3. Confirm the six-step README loop from reset through purchase and correction.
+4. Check the target event's required repository/demo visibility and judging duration.
+5. Do not make an unfinished backend, expiring credential, private invite, or paid service a dependency for basic review.
+6. Recheck the host's current quotas, terms, and acceptable-use policy immediately before submission; do not rely on old plan descriptions in repository history.
 
-These are future adapters, not capabilities claimed by the public demo. The tested forecast and coordination domain modules should remain platform-independent.
+## Static deployment flow
 
-## Vercel Hobby cost / traffic policy
+The GitHub Pages workflow installs dependencies, runs the protected runtime check, creates a Pages-specific Vite build, and publishes the result. The normal production build also emits the static files required by the repository's Sites packaging.
 
-If the production adapter is later prototyped on Vercel, it should remain on the free **Hobby** plan unless there is a concrete reason to upgrade.
+Verify locally with:
 
-Design assumption for that optional prototype:
+```bash
+cd app
+npm ci
+npm test
+npm run check:runtime
+npm run build
+npm run test:sites
+```
 
-- do **not** enable paid overage / Pro billing merely for the hackathon;
-- if free-plan resource limits are reached, treat service restriction or temporary unavailability as the risk to manage, rather than designing around hypothetical large traffic bills;
-- keep the application lightweight so that normal Devpost judging traffic remains comfortably within free-tier usage;
-- check the current Vercel limits and terms immediately before public submission because platform quotas and plan terms may change.
+The Pages workflow uses `npm run build:pages`, which applies the `/Milk-Tomorrow/` base path expected by the public repository URL.
 
-The larger practical risk for a hackathon is therefore **the demo becoming unavailable after a quota is exhausted**, not unexpectedly scaling infrastructure on purpose.
+## Production upgrade boundary
 
-## Commercial-use boundary
+A genuinely cross-device household service needs server-authoritative state. A future implementation can add:
 
-Vercel Hobby is intended for personal/non-commercial use under Vercel's current plan terms. Milk Tomorrow is being deployed here as a hackathon / prototype project.
+- a server-capable host for application routes or functions;
+- Postgres or another transactional store for household state and atomic claims;
+- realtime subscriptions or push events across devices;
+- authentication and household membership;
+- a scheduler for forecast evaluation;
+- an email or push provider for signed notification actions.
 
-If Milk Tomorrow later becomes a commercial service, generates revenue, or is operated as a production business product, re-evaluate hosting and move to an appropriate commercial plan or alternative platform. Do not silently carry the hackathon hosting assumptions into production.
+These are roadmap adapters, not capabilities of the current public demo. Provider names such as Supabase, Vercel, or Resend are implementation options, not submission evidence until they are connected and testable.
 
-## Keep the deployment replaceable
-
-Avoid unnecessary Vercel lock-in in the application core.
-
-Recommended separation:
+## Keep the domain portable
 
 ```text
 forecast engine       -> pure TypeScript, platform-independent
-household data        -> Supabase/Postgres
-claim / stock actions -> application service layer
-notifications         -> adapter interface
-web UI                -> Next.js
-hosting               -> Vercel for hackathon convenience
+coordination rules    -> pure request state machine
+browser demo state    -> localStorage + Web Locks + tab events
+production state      -> future server-authoritative adapter
+notifications         -> future provider adapter
+web UI                -> current React client
 ```
 
-The forecast algorithm and domain model should not depend on Vercel-specific APIs.
+Do not couple the forecast algorithm to a host, database, or notification vendor. The current domain tests should run without network access or credentials after any production adapter is added.
 
-## Human-required deployment steps
+## Human-required steps for a future backend
 
-Codex should implement everything possible without waiting for credentials. When credentials are absent, use seeded demo data and mock/fallback adapters so development continues.
+Only a future production expansion—not the current review demo—would require the participant to:
 
-Human intervention should be limited to steps such as:
+1. Select accounts and providers whose current terms match the intended use.
+2. Create projects, databases, domains, and notification credentials.
+3. Store secrets in the deployment platform rather than the repository.
+4. Configure authentication, authorization, retention, deletion, and recovery behavior.
+5. Verify atomic claims and realtime updates between separate authenticated devices.
+6. Confirm costs, quotas, domain/DNS settings, privacy disclosures, and operational ownership.
 
-1. Create or select a Vercel account/project and connect `yo4e/Milk-Tomorrow`.
-2. Create a Supabase project if real shared persistence is enabled.
-3. Add required environment variables/secrets in Vercel/Supabase.
-4. Create a Resend/email-provider API key and, if needed, complete domain/DNS verification.
-5. Trigger/confirm the final production deployment.
-6. Verify the public URL from an unauthenticated browser before Devpost submission.
+## No-credential fallback behavior
 
-Codex must document the exact required environment variables and any remaining manual setup in the README.
+The public artifact must continue to demonstrate:
 
-## No-credential fallback requirement
+- a fictional household;
+- forecasted milk depletion and a weekend effect;
+- `I'll get it` and one winning same-browser claim;
+- `We still have some` with bounded correction and snooze;
+- purchase completion and forecast recalculation;
+- reset, time travel, and model inspection.
 
-The repository must remain judgeable even if external service credentials are not yet configured.
+## Priority order
 
-At minimum, provide a **Demo Mode** that can demonstrate:
+1. Working public demo.
+2. Correct forecast and coordination loop.
+3. Stable mobile-friendly UX.
+4. Reliable seeded reset and transparent limitations.
+5. Target-event submission compliance.
+6. Optional production adapters.
 
-- a fictional household,
-- forecasted milk depletion,
-- weekend demand effects,
-- an alert appearing,
-- `I'll get it`,
-- `We still have some`,
-- claim-state coordination,
-- purchase completion,
-- forecast recalculation,
-- reset / time travel.
-
-External email delivery and production persistence are enhancements to the proof; they must not become single points of failure for completing the hackathon artifact.
-
-## Final deployment priority
-
-For this deadline, optimize in this order:
-
-1. working public demo,
-2. correct forecast + coordination loop,
-3. stable mobile-friendly UX,
-4. reliable seeded demo/reset,
-5. real Supabase persistence,
-6. real email delivery,
-7. production hardening.
-
-Do not sacrifice a functioning submission to build a more elaborate hosting architecture.
+Do not trade a judgeable, reproducible artifact for infrastructure that the target event does not require.
