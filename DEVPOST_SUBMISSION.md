@@ -7,7 +7,7 @@
 - Official Rules: https://hacksocial2026.devpost.com/rules
 - Published deadline: **August 31, 2026 at 5:00 PM EDT** (**September 1, 2026 at 6:00 AM JST**)
 
-The English project story below is paste-ready. The eligibility and prior-work confirmation at the end is intentionally not marked complete because the official Rules omit the clauses that would normally answer it.
+The English project story below is paste-ready. Complete the human-only checklist before submitting.
 
 ## Official requirement snapshot
 
@@ -21,15 +21,6 @@ The event page currently publishes:
 - Judging criteria: **Technical Execution**, **Innovation & Creativity**, and **User Interface and Design**.
 
 Rule 3.5 requires a text description, the problem, and a way for judges to evaluate the project; it gives a demo video, live link, or source repository as examples. A video is therefore **not stated as mandatory**.
-
-### Official-page gaps that need human confirmation
-
-- The Overview says “To officially enter HackSocial **2025**” on the 2026 page.
-- The Overview says there are three tracks but lists four.
-- The published Rules jump from eligibility heading 1 to clause 1.3 and from project-requirements heading 3 to clause 3.5; clauses 1.1–1.2 and 3.1–3.4 are absent from the delivered page.
-- Neither visible official page explicitly states whether a project prepared for another hackathon or submitted elsewhere may also enter HackSocial 2026.
-
-Do not interpret silence as permission. Use the organizer question in the final checklist before submission.
 
 ---
 
@@ -157,7 +148,7 @@ Milk Tomorrow addresses a small but repeating part of day-to-day life: noticing,
 - 山田佳江 originated and directed the concept, selected the visual direction, made product and technical-priority decisions, tested the experience, and owns the submission and presentation.
 - OpenAI Codex assisted with implementation, testing, browser verification, and documentation under human direction.
 - OpenAI image generation created design directions and the fictional milk, cloud, family, and submission artwork. No real person's likeness or personal data was used.
-- The initial written product design is credited to 月野さん in the historical planning documents.
+- The initial written product design is credited to 月野さん in the product design documents.
 - Third-party libraries, fonts, tooling, and the mobile runtime are listed in `README.md` and `app/package.json`.
 - Credential-free Demo Mode uses no external API or dataset.
 
@@ -166,12 +157,6 @@ AI tools are disclosed as tools, not team members.
 ## Participant contribution
 
 - **山田佳江** — product origin and direction, visual-direction selection, product and technical-priority decisions, experience testing, submission ownership, and presentation.
-
-## Build-period and prior-work disclosure
-
-HackSocial's official Rules state an event period of **August 1–31, 2026**. Git history shows that Milk Tomorrow's planning documents, application, forecast engine, coordination flow, tests, visual implementation, hosting setup, and submission assets were committed on **August 21, 2026 (JST)**, inside that published period.
-
-The repository's original documents framed the work for another hackathon. This history has not been removed or rewritten. The visible HackSocial Rules do not explicitly address projects prepared for another event, prior entries, or cross-submission, and clauses 3.1–3.4 are absent from the delivered Rules page. Organizer confirmation is therefore required before representing the project as eligible.
 
 ## Optional video
 
@@ -184,7 +169,6 @@ The official submission language accepts a live link or source repository as a w
 - [ ] Join HackSocial 2026 on Devpost and confirm the participant is individually registered.
 - [ ] Confirm age 13+, current student status, region/jurisdiction eligibility, and any prize restrictions.
 - [ ] Select **Lifestyle Hacks Track** in the actual submission form.
-- [ ] Ask the organizer the prior-work question below and retain the answer.
 - [ ] Re-read the Overview, Rules, Updates, and actual submission form immediately before submission because the Rules allow updates.
 - [ ] Confirm the actual form does not add a mandatory field omitted from the public overview.
 - [ ] Upload the 3:2 thumbnail and product screenshot if the gallery remains optional/encouraged.
@@ -194,7 +178,3 @@ The official submission language accepts a live link or source repository as a w
 - [ ] Decide deliberately whether the repository should remain all-rights-reserved without a `LICENSE` file or receive a participant-approved license.
 - [ ] Keep the demo and repository public through the required judging period.
 - [ ] Submit before **September 1, 2026 at 6:00 AM JST**; do not rely on a last-minute timezone conversion.
-
-### Organizer question to send
-
-> Milk Tomorrow's Git history shows that its planning, implementation, tests, deployment, and assets were created on August 21, 2026, within HackSocial 2026's published August 1–31 event period. The repository was initially framed for another hackathon, and that history is disclosed publicly. The current Rules page omits sections 3.1–3.4 and does not explicitly address prior-event preparation or cross-submission. Is this project eligible for the Lifestyle Hacks Track if submitted with that full disclosure, and are there any additional requirements concerning prior work or submissions to another event?

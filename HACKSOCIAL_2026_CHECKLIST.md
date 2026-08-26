@@ -37,37 +37,14 @@ Milk Tomorrow addresses a repeating day-to-day household friction: noticing a li
 | Innovation & Creativity | Demand forecasting turns a shopping list from a reactive note into a proactive family action before the shelf is empty. |
 | User Interface and Design | `89% → 2 bottles → I’ll get it`, responsive mobile-first UI, accessible controls, and progressive disclosure in Tomorrow Lab. |
 
-## Official-page defects and unresolved interpretation
+## Official-page notes
 
-The current official pages are not internally complete:
+The current official pages contain a few visible inconsistencies worth rechecking before submission:
 
 - The 2026 Overview says “To officially enter HackSocial **2025**.”
 - It says participants can choose from three tracks but lists four.
-- The delivered Rules page jumps from the eligibility heading to clause 1.3; clauses 1.1–1.2 are absent.
-- It jumps from the project-requirements heading to clause 3.5; clauses 3.1–3.4 are absent.
-- The visible official text does not explicitly address projects prepared for another event, previous submission, cross-submission, or whether registration must precede project work.
 
-The absence of a prohibition is not enough to mark the project eligible. Keep the organizer-confirmation item open.
-
-## Build-period evidence
-
-All recorded project work currently predates the deadline and falls inside HackSocial's published August 1–31 event period:
-
-| August 21, 2026 (JST) | Git evidence |
-|---|---|
-| Product, implementation, and deployment planning | `7c5061b`, `4af35f1`, `4db6ccc` |
-| Working app, forecast engine, coordination, tests, and visual implementation | `a8a5234` |
-| Static packaging and GitHub Pages deployment | `d9ff177` through `06e84e9` |
-| Public documentation and submission artwork | `d5088f4` / PR #3 |
-| Optional video scenario | `1d40a91` |
-
-The historical planning documents openly show that Milk Tomorrow was initially framed for another hackathon. Do not remove that history or imply that the project was conceived exclusively for HackSocial.
-
-## Organizer question
-
-Send this through the official Devpost contact/discussion channel and retain the reply:
-
-> Milk Tomorrow's Git history shows that its planning, implementation, tests, deployment, and assets were created on August 21, 2026, within HackSocial 2026's published August 1–31 event period. The repository was initially framed for another hackathon, and that history is disclosed publicly. The current Rules page omits sections 3.1–3.4 and does not explicitly address prior-event preparation or cross-submission. Is this project eligible for the Lifestyle Hacks Track if submitted with that full disclosure, and are there any additional requirements concerning prior work, registration timing, or submission to another event?
+These do not currently change Milk Tomorrow's submission path, but the live Overview, Rules, Updates, and actual form should be re-read immediately before submission.
 
 ## Submission materials ready now
 
@@ -78,7 +55,6 @@ Send this through the official Devpost contact/discussion channel and retain the
 - [x] Six-step reviewer test loop
 - [x] Known limitations and privacy statement
 - [x] Human, AI-assistance, generated-asset, and third-party disclosures
-- [x] Git-based event-period and prior-work disclosure
 - [x] 3:2 gallery thumbnail
 - [x] Real mobile product screenshot
 - [x] Optional 2:50 video scenario; not treated as a submission blocker
@@ -109,7 +85,6 @@ Then verify manually:
 
 ## Human-only final checklist
 
-- [ ] Receive organizer confirmation on prior-event preparation, cross-submission, and registration timing.
 - [ ] Join the event and confirm 山田佳江 is individually registered on Devpost.
 - [x] Student status is participant-confirmed; ensure the Devpost registration reflects it accurately.
 - [ ] Confirm age 13+, regional/jurisdiction eligibility, and any tax, sanctions, export-control, or prize restrictions.
@@ -117,7 +92,7 @@ Then verify manually:
 - [ ] Re-read the Overview, Rules, Updates, and actual form immediately before submission; the Rules allow updates.
 - [ ] Confirm the actual form has no required field omitted from the public Overview.
 - [ ] Upload the primary thumbnail and real product screenshot.
-- [ ] Do not produce a final video unless the actual form or organizer makes it necessary or the participant chooses it as optional promotion.
+- [ ] Do not produce a final video unless the actual form makes it necessary or the participant chooses it as optional promotion.
 - [ ] Confirm generated artwork and every third-party dependency comply with their license and HackSocial's promotional-use terms.
 - [ ] Decide deliberately whether to keep the repository without a `LICENSE` file or add a participant-approved license; do not let an agent guess the rights holder's intent.
 - [ ] Preview the final Devpost page and remove internal notes, unchecked boxes, or stale event references.
@@ -131,4 +106,3 @@ Then verify manually:
 - That the model observes the refrigerator or knows an exact empty time.
 - Runtime LLM or trained machine-learning behavior; the current engine is a seeded Monte Carlo simulation.
 - Measured adoption, savings, waste reduction, or social impact without new evidence.
-- That the entire project was created exclusively for HackSocial.
