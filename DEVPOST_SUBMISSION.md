@@ -1,13 +1,15 @@
 # Milk Tomorrow — HackSocial 2026 Devpost Submission
 
 - **Target:** HackSocial 2026 · Lifestyle Hacks Track
-- **Official sources checked:** August 26, 2026
+- **Submission status:** Submitted August 27, 2026 (JST)
+- **Public project:** https://devpost.com/software/milk-tomorrow
+- **Official sources checked:** August 27, 2026
 
 - Event page: https://hacksocial2026.devpost.com/
 - Official Rules: https://hacksocial2026.devpost.com/rules
 - Published deadline: **August 31, 2026 at 5:00 PM EDT** (**September 1, 2026 at 6:00 AM JST**)
 
-The English project story below is paste-ready. Complete the human-only checklist before submitting.
+The English project story below records the submitted copy and supporting evidence.
 
 ## Official requirement snapshot
 
@@ -129,7 +131,7 @@ Milk Tomorrow addresses a small but repeating part of day-to-day life: noticing,
 ## Gallery assets
 
 - `submission-assets/milk-tomorrow-thumbnail.png` — 1536 × 1024 (3:2) primary gallery image.
-- `app/design/implementation-home-forecast-393x852.jpg` — real mobile product screenshot.
+- `submission-assets/milk-tomorrow-mobile-current.jpg` — 393 × 852 capture of the current live product used on Devpost.
 - `submission-assets/milk-tomorrow-social-preview.png` — 1200 × 630 link preview.
 
 ## Known limitations and responsible delivery
@@ -164,17 +166,17 @@ The official submission language accepts a live link or source repository as a w
 
 `VIDEO_SCENARIO.md` remains available as an optional 2:50 promotional/demo asset. Do not make final video production a HackSocial submission blocker unless the organizer or actual submission form adds a requirement.
 
-## Human-only submission checklist
+## Submission record
 
-- [ ] Join HackSocial 2026 on Devpost and confirm the participant is individually registered.
-- [ ] Confirm age 13+, current student status, region/jurisdiction eligibility, and any prize restrictions.
-- [ ] Select **Lifestyle Hacks Track** in the actual submission form.
-- [ ] Re-read the Overview, Rules, Updates, and actual submission form immediately before submission because the Rules allow updates.
-- [ ] Confirm the actual form does not add a mandatory field omitted from the public overview.
-- [ ] Upload the 3:2 thumbnail and product screenshot if the gallery remains optional/encouraged.
-- [ ] Verify the public demo and repository signed out.
-- [ ] Re-run `npm test`, `npm run check:runtime`, `npm run build`, and `npm run test:sites`.
-- [ ] Confirm all third-party dependencies and generated assets comply with their licenses and HackSocial's promotional-use license.
-- [ ] Decide deliberately whether the repository should remain all-rights-reserved without a `LICENSE` file or receive a participant-approved license.
-- [ ] Keep the demo and repository public through the required judging period.
-- [ ] Submit before **September 1, 2026 at 6:00 AM JST**; do not rely on a last-minute timezone conversion.
+- [x] Joined HackSocial 2026 on Devpost as an individually registered solo participant.
+- [x] Participant confirmed the registration eligibility statements, including age, student status, and region/jurisdiction.
+- [x] Re-read the Overview, Rules, Updates, and actual submission form on August 27, 2026.
+- [x] The actual form exposed no track selector; the story explicitly targets the **Lifestyle Hacks Track**.
+- [x] Completed the actual required fields and the optional public participant-contribution field.
+- [x] Uploaded the 3:2 thumbnail, current 393 × 852 live-product screenshot, and social preview.
+- [x] Verified the public demo and source repository.
+- [x] Re-ran the domain tests, runtime-integrity check, production build, and Sites worker tests.
+- [x] Disclosed human contribution, AI assistance, generated artwork, third-party dependencies, and limitations.
+- [x] Added the participant-approved [MIT License](LICENSE).
+- [x] Submitted the public project on August 27, 2026: https://devpost.com/software/milk-tomorrow
+- [ ] Keep the demo and repository public through the organizer's judging period.
