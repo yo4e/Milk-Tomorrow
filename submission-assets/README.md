@@ -1,22 +1,23 @@
 # Submission assets
 
-These event-neutral files are ready for the HackSocial 2026 Devpost gallery, repository previews, and link cards. None contains a previous event name or sponsor mark.
+These event-neutral files were prepared for and used in the HackSocial 2026 Devpost submission, repository previews, and link cards. None contains a previous event name or sponsor mark.
 
 | File | Size | Intended use |
 |---|---:|---|
 | `milk-tomorrow-thumbnail.png` | 1536 × 1024 (3:2) | Primary submission/gallery thumbnail; crop only after checking the target platform's safe area |
 | `milk-tomorrow-social-preview.png` | 1200 × 630 | GitHub repository social preview and link cards |
-| `../app/design/implementation-home-forecast-393x852.jpg` | 393 × 852 | Product screenshot showing the initial `89% / 2 bottles` state |
+| `milk-tomorrow-mobile-current.jpg` | 393 × 852 | Current live-product screenshot used in the Devpost gallery |
+| `../app/design/implementation-home-forecast-393x852.jpg` | 393 × 852 | Earlier implementation QA reference; not the submitted gallery screenshot |
 | `../app/design/pixel-10-responsive.png` | Pixel 10 QA capture | Optional responsive-evidence screenshot; not the primary gallery image |
 
-The artwork was generated with OpenAI image generation on August 21, 2026, using the selected Home Forecast screen, milk bottle, and cloud artwork from this repository as visual references. It contains no real person's likeness or personal data.
+The artwork was generated with OpenAI image generation on August 21, 2026, using the selected Home Forecast screen, milk bottle, and cloud artwork from this repository as visual references. It contains no real person's likeness or personal data. The current mobile screenshot was captured from the public live demo at 393 × 852 on August 27, 2026.
 
 The thumbnail deliberately mirrors the product's visual language: pale sky blue, deep navy, orange forecast risk, a green accent, and a friendly milk bottle paired with an `89%` probability curve.
 
 ## Reuse checklist
 
-- Confirm the actual HackSocial form's aspect ratio, file-size, text-safe-area, and image-count rules before upload; the public Overview only says screenshots are optional but encouraged.
-- Prefer the thumbnail for the first gallery slot and the real product screenshot for the second.
+- The submitted Devpost media used the thumbnail, current live-product screenshot, and social preview after checking the actual form.
+- For reuse elsewhere, re-check that platform's aspect ratio, file-size, text-safe-area, and image-count rules.
 - Do not add an event logo or sponsor mark without the organizer's permission and brand guidance.
 - Keep `89%` tied to the seeded demo scenario; do not present it as measured household accuracy.
 - These assets were created on August 21, inside HackSocial's published August 1–31 event period, while the repository was still framed for another event. Keep that provenance visible in the submission's prior-work disclosure.

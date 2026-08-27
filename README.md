@@ -7,8 +7,14 @@
 Milk Tomorrow forecasts when an everyday household supply is likely to run short, recommends a practical purchase quantity, and lets one family member claim the restocking task. The surface is intentionally simple enough for a child or a busy parent; underneath it runs a timezone-aware, seeded Monte Carlo demand simulation.
 
 - **Live demo:** [yo4e.github.io/Milk-Tomorrow](https://yo4e.github.io/Milk-Tomorrow/)
-- **HackSocial 2026 Devpost copy:** [DEVPOST_SUBMISSION.md](DEVPOST_SUBMISSION.md)
-- **Official-rules check and preflight:** [HACKSOCIAL_2026_CHECKLIST.md](HACKSOCIAL_2026_CHECKLIST.md)
+- **HackSocial 2026 submission:** [devpost.com/software/milk-tomorrow](https://devpost.com/software/milk-tomorrow)
+- **Submission record and project story:** [DEVPOST_SUBMISSION.md](DEVPOST_SUBMISSION.md)
+- **Official-rules audit and final checklist:** [HACKSOCIAL_2026_CHECKLIST.md](HACKSOCIAL_2026_CHECKLIST.md)
+- **License:** [MIT](LICENSE)
+
+## HackSocial 2026 submission
+
+Milk Tomorrow was submitted on **August 27, 2026 (JST)** for HackSocial 2026, targeting the **Lifestyle Hacks Track**. The public submission, live demo, source repository, disclosures, and gallery assets remain available for judging.
 
 ## Why it exists
 
@@ -105,7 +111,7 @@ Milk Tomorrow targets the **Lifestyle Hacks Track** because it removes a recurri
 | Innovation & Creativity | Turns the shopping list from a reactive note into a forecast-generated action before the shelf is empty. |
 | User Interface and Design | `89% → 2 bottles → I’ll get it` on the main screen, with model evidence progressively disclosed in Tomorrow Lab. |
 
-The exact official-source audit, known page defects, and remaining organizer question are in [HACKSOCIAL_2026_CHECKLIST.md](HACKSOCIAL_2026_CHECKLIST.md).
+The official-source audit, known page defects, and the participant's documented submission decision are in [HACKSOCIAL_2026_CHECKLIST.md](HACKSOCIAL_2026_CHECKLIST.md).
 
 ## Repository map
 
@@ -117,8 +123,8 @@ app/src/Prototype.tsx            Home Forecast and Tomorrow Lab
 app/tests/domain/                Eleven deterministic domain tests
 app/design-qa.md                 Source-vs-rendered design QA evidence
 submission-assets/               Reusable gallery and social artwork
-DEVPOST_SUBMISSION.md            HackSocial 2026 paste-ready story and disclosure
-HACKSOCIAL_2026_CHECKLIST.md     Official-source audit and human-only preflight
+DEVPOST_SUBMISSION.md            Submitted HackSocial 2026 story and submission record
+HACKSOCIAL_2026_CHECKLIST.md     Official-source audit and final verification record
 VIDEO_SCENARIO.md                Optional 2:50 demo-video master and shorter cuts
 DESIGN.md                        Historical product design from the initial build
 IMPLEMENTATION_NOTES.md          Historical implementation guidance
@@ -157,7 +163,7 @@ The repository preserves its original planning context, but this README is event
 - `d9ff177` through `06e84e9`: static hosting and GitHub Pages deployment work.
 - `d5088f4` / PR #3 and `1d40a91`: submission artwork, public documentation, and the optional video scenario.
 
-HackSocial publishes an event period of August 1–31, 2026, so every commit above falls inside that window. The repository was nevertheless first framed for another event, and HackSocial's visible Rules do not explicitly address prior-event preparation or cross-submission. That history remains public; organizer confirmation is a human-only preflight item rather than an eligibility assumption.
+HackSocial publishes an event period of August 1–31, 2026, so every commit above falls inside that window. The repository was nevertheless first framed for another event, and HackSocial's visible Rules do not explicitly address prior-event preparation or cross-submission. That history remains public. The participant chose to submit with this disclosure and without claiming that the organizer had separately approved the interpretation.
 
 ## Participant and tool disclosure
 
@@ -169,6 +175,10 @@ HackSocial publishes an event period of August 1–31, 2026, so every commit abo
 - Credential-free Demo Mode uses no external API or dataset.
 
 AI tools are disclosed as tools, not listed as team members. The participant remains responsible for the project's accuracy, licensing, privacy, security, and behavior.
+
+## License
+
+Milk Tomorrow is available under the [MIT License](LICENSE). Copyright © 2026 Yoshie Yamada.
 
 ## Next production step
 

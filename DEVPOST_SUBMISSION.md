@@ -1,13 +1,15 @@
 # Milk Tomorrow — HackSocial 2026 Devpost Submission
 
 - **Target:** HackSocial 2026 · Lifestyle Hacks Track
-- **Official sources checked:** August 26, 2026
+- **Submission status:** Submitted August 27, 2026 (JST)
+- **Public project:** https://devpost.com/software/milk-tomorrow
+- **Official sources checked:** August 27, 2026
 
 - Event page: https://hacksocial2026.devpost.com/
 - Official Rules: https://hacksocial2026.devpost.com/rules
 - Published deadline: **August 31, 2026 at 5:00 PM EDT** (**September 1, 2026 at 6:00 AM JST**)
 
-The English project story below is paste-ready. The eligibility and prior-work confirmation at the end is intentionally not marked complete because the official Rules omit the clauses that would normally answer it.
+The English project story below records the submitted copy and supporting evidence. The public official pages omit clauses that would normally answer the prior-work question; the participant chose to submit with transparent disclosure and without representing that the organizer had separately approved that interpretation.
 
 ## Official requirement snapshot
 
@@ -22,14 +24,14 @@ The event page currently publishes:
 
 Rule 3.5 requires a text description, the problem, and a way for judges to evaluate the project; it gives a demo video, live link, or source repository as examples. A video is therefore **not stated as mandatory**.
 
-### Official-page gaps that need human confirmation
+### Official-page gaps recorded at submission
 
 - The Overview says “To officially enter HackSocial **2025**” on the 2026 page.
 - The Overview says there are three tracks but lists four.
 - The published Rules jump from eligibility heading 1 to clause 1.3 and from project-requirements heading 3 to clause 3.5; clauses 1.1–1.2 and 3.1–3.4 are absent from the delivered page.
 - Neither visible official page explicitly states whether a project prepared for another hackathon or submitted elsewhere may also enter HackSocial 2026.
 
-Do not interpret silence as permission. Use the organizer question in the final checklist before submission.
+These gaps are documented rather than silently resolved. The participant elected to proceed based on the visible rules and the public Git history; no organizer response is claimed.
 
 ---
 
@@ -138,7 +140,7 @@ Milk Tomorrow addresses a small but repeating part of day-to-day life: noticing,
 ## Gallery assets
 
 - `submission-assets/milk-tomorrow-thumbnail.png` — 1536 × 1024 (3:2) primary gallery image.
-- `app/design/implementation-home-forecast-393x852.jpg` — real mobile product screenshot.
+- `submission-assets/milk-tomorrow-mobile-current.jpg` — 393 × 852 capture of the current live product used on Devpost.
 - `submission-assets/milk-tomorrow-social-preview.png` — 1200 × 630 link preview.
 
 ## Known limitations and responsible delivery
@@ -171,7 +173,7 @@ AI tools are disclosed as tools, not team members.
 
 HackSocial's official Rules state an event period of **August 1–31, 2026**. Git history shows that Milk Tomorrow's planning documents, application, forecast engine, coordination flow, tests, visual implementation, hosting setup, and submission assets were committed on **August 21, 2026 (JST)**, inside that published period.
 
-The repository's original documents framed the work for another hackathon. This history has not been removed or rewritten. The visible HackSocial Rules do not explicitly address projects prepared for another event, prior entries, or cross-submission, and clauses 3.1–3.4 are absent from the delivered Rules page. Organizer confirmation is therefore required before representing the project as eligible.
+The repository's original documents framed the work for another hackathon. This history has not been removed or rewritten. The visible HackSocial Rules do not explicitly address projects prepared for another event, prior entries, or cross-submission, and clauses 3.1–3.4 are absent from the delivered Rules page. The participant chose to submit with this disclosure and without claiming an organizer eligibility determination.
 
 ## Optional video
 
@@ -179,22 +181,23 @@ The official submission language accepts a live link or source repository as a w
 
 `VIDEO_SCENARIO.md` remains available as an optional 2:50 promotional/demo asset. Do not make final video production a HackSocial submission blocker unless the organizer or actual submission form adds a requirement.
 
-## Human-only submission checklist
+## Submission record
 
-- [ ] Join HackSocial 2026 on Devpost and confirm the participant is individually registered.
-- [ ] Confirm age 13+, current student status, region/jurisdiction eligibility, and any prize restrictions.
-- [ ] Select **Lifestyle Hacks Track** in the actual submission form.
-- [ ] Ask the organizer the prior-work question below and retain the answer.
-- [ ] Re-read the Overview, Rules, Updates, and actual submission form immediately before submission because the Rules allow updates.
-- [ ] Confirm the actual form does not add a mandatory field omitted from the public overview.
-- [ ] Upload the 3:2 thumbnail and product screenshot if the gallery remains optional/encouraged.
-- [ ] Verify the public demo and repository signed out.
-- [ ] Re-run `npm test`, `npm run check:runtime`, `npm run build`, and `npm run test:sites`.
-- [ ] Confirm all third-party dependencies and generated assets comply with their licenses and HackSocial's promotional-use license.
-- [ ] Decide deliberately whether the repository should remain all-rights-reserved without a `LICENSE` file or receive a participant-approved license.
-- [ ] Keep the demo and repository public through the required judging period.
-- [ ] Submit before **September 1, 2026 at 6:00 AM JST**; do not rely on a last-minute timezone conversion.
+- [x] Joined HackSocial 2026 on Devpost as an individually registered solo participant.
+- [x] Participant confirmed the registration eligibility statements, including age, student status, and region/jurisdiction.
+- [x] Re-read the Overview, Rules, Updates, and actual submission form on August 27, 2026.
+- [x] The actual form exposed no track selector; the story explicitly targets the **Lifestyle Hacks Track**.
+- [x] Completed the actual required fields and the optional public participant-contribution field.
+- [x] Uploaded the 3:2 thumbnail, current 393 × 852 live-product screenshot, and social preview.
+- [x] Verified the public demo and source repository.
+- [x] Re-ran the domain tests, runtime-integrity check, production build, and Sites worker tests.
+- [x] Disclosed human contribution, AI assistance, generated artwork, third-party dependencies, limitations, and project history.
+- [x] Added the participant-approved [MIT License](LICENSE).
+- [x] Submitted the public project on August 27, 2026: https://devpost.com/software/milk-tomorrow
+- [ ] Keep the demo and repository public through the organizer's judging period.
 
-### Organizer question to send
+### Unsent organizer question retained for provenance
+
+The participant chose not to make this question a submission blocker. It is retained as a record of the unresolved source-language issue and was not sent or answered:
 
 > Milk Tomorrow's Git history shows that its planning, implementation, tests, deployment, and assets were created on August 21, 2026, within HackSocial 2026's published August 1–31 event period. The repository was initially framed for another hackathon, and that history is disclosed publicly. The current Rules page omits sections 3.1–3.4 and does not explicitly address prior-event preparation or cross-submission. Is this project eligible for the Lifestyle Hacks Track if submitted with that full disclosure, and are there any additional requirements concerning prior work or submissions to another event?

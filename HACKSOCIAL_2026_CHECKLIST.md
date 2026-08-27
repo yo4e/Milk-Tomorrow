@@ -1,10 +1,11 @@
 # Milk Tomorrow — HackSocial 2026 Rules Check and Submission Checklist
 
-Last checked against primary sources: **August 26, 2026**
+Last checked against primary sources and the actual submission form: **August 27, 2026**
 
 - Official event page: https://hacksocial2026.devpost.com/
 - Official Rules: https://hacksocial2026.devpost.com/rules
-- Paste-ready project copy: [`DEVPOST_SUBMISSION.md`](DEVPOST_SUBMISSION.md)
+- Submitted project: https://devpost.com/software/milk-tomorrow
+- Submitted project copy and record: [`DEVPOST_SUBMISSION.md`](DEVPOST_SUBMISSION.md)
 
 ## Verified event facts
 
@@ -37,7 +38,7 @@ Milk Tomorrow addresses a repeating day-to-day household friction: noticing a li
 | Innovation & Creativity | Demand forecasting turns a shopping list from a reactive note into a proactive family action before the shelf is empty. |
 | User Interface and Design | `89% → 2 bottles → I’ll get it`, responsive mobile-first UI, accessible controls, and progressive disclosure in Tomorrow Lab. |
 
-## Official-page defects and unresolved interpretation
+## Official-page defects and documented interpretation gap
 
 The current official pages are not internally complete:
 
@@ -47,7 +48,7 @@ The current official pages are not internally complete:
 - It jumps from the project-requirements heading to clause 3.5; clauses 3.1–3.4 are absent.
 - The visible official text does not explicitly address projects prepared for another event, previous submission, cross-submission, or whether registration must precede project work.
 
-The absence of a prohibition is not enough to mark the project eligible. Keep the organizer-confirmation item open.
+The participant chose to submit with the original history and this gap disclosed. This record does not interpret the missing text as organizer approval and does not claim that an organizer confirmation was received.
 
 ## Build-period evidence
 
@@ -63,29 +64,29 @@ All recorded project work currently predates the deadline and falls inside HackS
 
 The historical planning documents openly show that Milk Tomorrow was initially framed for another hackathon. Do not remove that history or imply that the project was conceived exclusively for HackSocial.
 
-## Organizer question
+## Organizer question retained for provenance
 
-Send this through the official Devpost contact/discussion channel and retain the reply:
+This question was drafted but not sent. The participant chose not to make it a submission blocker:
 
 > Milk Tomorrow's Git history shows that its planning, implementation, tests, deployment, and assets were created on August 21, 2026, within HackSocial 2026's published August 1–31 event period. The repository was initially framed for another hackathon, and that history is disclosed publicly. The current Rules page omits sections 3.1–3.4 and does not explicitly address prior-event preparation or cross-submission. Is this project eligible for the Lifestyle Hacks Track if submitted with that full disclosure, and are there any additional requirements concerning prior work, registration timing, or submission to another event?
 
-## Submission materials ready now
+## Submitted materials
 
 - [x] Public credential-free demo: https://yo4e.github.io/Milk-Tomorrow/
 - [x] Public source: https://github.com/yo4e/Milk-Tomorrow
-- [x] HackSocial-specific paste-ready story in `DEVPOST_SUBMISSION.md`
+- [x] HackSocial-specific submitted story in `DEVPOST_SUBMISSION.md`
 - [x] Lifestyle Hacks fit and exact judging-criteria alignment
 - [x] Six-step reviewer test loop
 - [x] Known limitations and privacy statement
 - [x] Human, AI-assistance, generated-asset, and third-party disclosures
 - [x] Git-based event-period and prior-work disclosure
 - [x] 3:2 gallery thumbnail
-- [x] Real mobile product screenshot
+- [x] Current 393 × 852 live-product screenshot used on Devpost
 - [x] Optional 2:50 video scenario; not treated as a submission blocker
 
-## Technical re-verification
+## Final technical verification — August 27, 2026
 
-Run immediately before submission:
+The final verification commands were run successfully:
 
 ```bash
 cd app
@@ -95,6 +96,11 @@ npm run check:runtime
 npm run build
 npm run test:sites
 ```
+
+- 11 domain tests passed.
+- Mobile runtime integrity passed for 28 protected files.
+- The production build passed.
+- 4 Sites worker tests passed.
 
 Then verify manually:
 
@@ -107,22 +113,20 @@ Then verify manually:
 - The main flow remains usable near `393 × 852` and on desktop.
 - No secret, credential, private data, local-only WAV, or unintended build output is committed.
 
-## Human-only final checklist
+## Final submission record
 
-- [ ] Receive organizer confirmation on prior-event preparation, cross-submission, and registration timing.
-- [ ] Join the event and confirm 山田佳江 is individually registered on Devpost.
-- [x] Student status is participant-confirmed; ensure the Devpost registration reflects it accurately.
-- [ ] Confirm age 13+, regional/jurisdiction eligibility, and any tax, sanctions, export-control, or prize restrictions.
-- [ ] Select **Lifestyle Hacks Track** in the actual submission form.
-- [ ] Re-read the Overview, Rules, Updates, and actual form immediately before submission; the Rules allow updates.
-- [ ] Confirm the actual form has no required field omitted from the public Overview.
-- [ ] Upload the primary thumbnail and real product screenshot.
-- [ ] Do not produce a final video unless the actual form or organizer makes it necessary or the participant chooses it as optional promotion.
-- [ ] Confirm generated artwork and every third-party dependency comply with their license and HackSocial's promotional-use terms.
-- [ ] Decide deliberately whether to keep the repository without a `LICENSE` file or add a participant-approved license; do not let an agent guess the rights holder's intent.
-- [ ] Preview the final Devpost page and remove internal notes, unchecked boxes, or stale event references.
+- [x] 山田佳江 joined and registered as the solo participant on Devpost.
+- [x] Participant confirmed the registration eligibility statements, including age, student status, and region/jurisdiction.
+- [x] Re-read the official pages and actual form on August 27, 2026.
+- [x] The form exposed no track selector; the submitted story explicitly targets **Lifestyle Hacks Track**.
+- [x] Checked the actual required fields and completed the optional contribution field.
+- [x] Uploaded the primary thumbnail, current product screenshot, and social preview.
+- [x] Verified the public demo and repository.
+- [x] Omitted the optional video because the visible rules and actual form did not require one.
+- [x] Preserved disclosures for generated artwork, dependencies, limitations, AI assistance, and prior context.
+- [x] Added the participant-approved [MIT License](LICENSE).
+- [x] Previewed and submitted the project on August 27, 2026: https://devpost.com/software/milk-tomorrow
 - [ ] Keep the repository and demo public through the judging period required by the organizer.
-- [ ] Submit well before **September 1, 2026 at 6:00 AM JST**.
 
 ## Do not claim
 
