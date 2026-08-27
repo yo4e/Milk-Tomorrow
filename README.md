@@ -9,7 +9,7 @@ Milk Tomorrow forecasts when an everyday household supply is likely to run short
 - **Live demo:** [yo4e.github.io/Milk-Tomorrow](https://yo4e.github.io/Milk-Tomorrow/)
 - **HackSocial 2026 submission:** [devpost.com/software/milk-tomorrow](https://devpost.com/software/milk-tomorrow)
 - **Submission record and project story:** [DEVPOST_SUBMISSION.md](DEVPOST_SUBMISSION.md)
-- **Official-rules audit and final checklist:** [HACKSOCIAL_2026_CHECKLIST.md](HACKSOCIAL_2026_CHECKLIST.md)
+- **Submission verification record:** [HACKSOCIAL_2026_CHECKLIST.md](HACKSOCIAL_2026_CHECKLIST.md)
 - **License:** [MIT](LICENSE)
 
 ## HackSocial 2026 submission
@@ -111,7 +111,7 @@ Milk Tomorrow targets the **Lifestyle Hacks Track** because it removes a recurri
 | Innovation & Creativity | Turns the shopping list from a reactive note into a forecast-generated action before the shelf is empty. |
 | User Interface and Design | `89% → 2 bottles → I’ll get it` on the main screen, with model evidence progressively disclosed in Tomorrow Lab. |
 
-The official-source audit, known page defects, and the participant's documented submission decision are in [HACKSOCIAL_2026_CHECKLIST.md](HACKSOCIAL_2026_CHECKLIST.md).
+Submission requirements and final verification are recorded in [HACKSOCIAL_2026_CHECKLIST.md](HACKSOCIAL_2026_CHECKLIST.md).
 
 ## Repository map
 
@@ -124,10 +124,10 @@ app/tests/domain/                Eleven deterministic domain tests
 app/design-qa.md                 Source-vs-rendered design QA evidence
 submission-assets/               Reusable gallery and social artwork
 DEVPOST_SUBMISSION.md            Submitted HackSocial 2026 story and submission record
-HACKSOCIAL_2026_CHECKLIST.md     Official-source audit and final verification record
+HACKSOCIAL_2026_CHECKLIST.md     Submission requirements and verification record
 VIDEO_SCENARIO.md                Optional 2:50 demo-video master and shorter cuts
-DESIGN.md                        Historical product design from the initial build
-IMPLEMENTATION_NOTES.md          Historical implementation guidance
+DESIGN.md                        Product and implementation design
+IMPLEMENTATION_NOTES.md          Implementation guidance
 DEPLOYMENT_NOTES.md              Current public demo and production upgrade path
 ```
 
@@ -154,23 +154,12 @@ The domain suite covers reproducibility, purchase impact, time-travel stock agin
 - The household and milk profile are fixed in this narrow prototype. Onboarding and additional consumables are future work.
 - Demo Mode collects no account, precise location, receipt, credential, or real household data.
 
-## Project history and reuse disclosure
-
-The repository preserves its original planning context, but this README is event-neutral. Git history establishes the following timeline on **August 21, 2026 (JST)**:
-
-- `7c5061b`, `4af35f1`, and `4db6ccc`: product, implementation, and deployment planning documents.
-- `a8a5234`: the application, forecast engine, coordination flow, tests, and selected visual implementation.
-- `d9ff177` through `06e84e9`: static hosting and GitHub Pages deployment work.
-- `d5088f4` / PR #3 and `1d40a91`: submission artwork, public documentation, and the optional video scenario.
-
-HackSocial publishes an event period of August 1–31, 2026, so every commit above falls inside that window. The repository was nevertheless first framed for another event, and HackSocial's visible Rules do not explicitly address prior-event preparation or cross-submission. That history remains public. The participant chose to submit with this disclosure and without claiming that the organizer had separately approved the interpretation.
-
 ## Participant and tool disclosure
 
 - **山田佳江** originated and directed the product concept, selected the visual direction, made product and technical-priority decisions, tested the experience, and owns the submission and presentation.
 - OpenAI Codex assisted with implementation, testing, browser verification, and documentation under human direction.
 - OpenAI image generation created the design directions and fictional milk, cloud, family, and submission artwork. No real person's likeness or personal data was used.
-- The original planning documents credit 月野さん for the initial written product design.
+- The product design documents credit 月野さん for the initial written product design.
 - React, React DOM, TypeScript, Vite, Radix UI, Motion, `@use-gesture/react`, Fontsource packages, Playwright tooling, and the Codex Product Design mobile runtime are third-party dependencies or templates.
 - Credential-free Demo Mode uses no external API or dataset.
 

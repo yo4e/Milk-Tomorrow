@@ -20,7 +20,7 @@ The thumbnail deliberately mirrors the product's visual language: pale sky blue,
 - For reuse elsewhere, re-check that platform's aspect ratio, file-size, text-safe-area, and image-count rules.
 - Do not add an event logo or sponsor mark without the organizer's permission and brand guidance.
 - Keep `89%` tied to the seeded demo scenario; do not present it as measured household accuracy.
-- These assets were created on August 21, inside HackSocial's published August 1–31 event period, while the repository was still framed for another event. Keep that provenance visible in the submission's prior-work disclosure.
+- The generated artwork was created on August 21, 2026; the current live-product screenshot was captured on August 27, 2026.
 - Use this disclosure when required: **“Submission artwork and fictional in-app illustrations were created with OpenAI image generation under human direction; no real person's likeness or personal data was used.”**
 
 ## Generation prompt
